@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require("discord.js");
-const { isPrivilegedUser } = require("../permissions"); // Import the permission check
+const { isPrivilegedUser } = require("../../permissions.js"); // Import the permission check
 
 module.exports = {
   data: new SlashCommandBuilder()

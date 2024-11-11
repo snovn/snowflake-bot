@@ -1,13 +1,13 @@
 const { SlashCommandBuilder } = require("discord.js");
-const { isPrivilegedUser } = require("../permissions"); // Import the permission check
+const { isPrivilegedUser } = require("../../permissions.js"); // Import the permission check
 const os = require("os");
 const { version } = require("process");
 const { performance } = require("perf_hooks");
-const config = require("../config.json"); // Import config.json
+const config = require("../../config.json"); // Import config.json
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName("debug")
+    .setName("info")
     .setDescription(
       "Shows detailed bot debugging information (only available to privileged users)."
     ),
