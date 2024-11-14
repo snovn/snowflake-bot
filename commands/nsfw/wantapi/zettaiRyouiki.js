@@ -1,12 +1,12 @@
 const { SlashCommandBuilder } = require("discord.js");
-const Ultimate = require("ultimate-nsfw");
-const nsfw = Ultimate.default;
+const HMfull = require("hmfull");
+
 const config = require("../../../config.json");
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName("kitsune")
-    .setDescription("Displays a NSFW kitsune image."),
+    .setName("zettairyouiki")
+    .setDescription("Displays a NSFW Zettai Ryouiki image."),
 
   async execute(interaction) {
     if (!interaction.channel.nsfw) {
@@ -17,11 +17,11 @@ module.exports = {
     }
 
     try {
-      const image = await nsfw.fetch("kitsune"); // Use the package method
+      const image = await HMfull.HMtai.nsfw.zettaiRyouiki(); // Use the package method
 
       const embed = {
         color: parseInt(config.botColor.replace("#", ""), 16) || 0x0099ff,
-        title: "Here's your kitsune image",
+        title: "Here's your Zettai Ryouiki image",
         image: { url: image.url },
         footer: {
           text: `Requested by ${interaction.user.tag}`,

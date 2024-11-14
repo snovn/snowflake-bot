@@ -5,7 +5,7 @@ const {
   ButtonStyle,
 } = require("discord.js");
 const { r34_search } = require("r34-module");
-const config = require("../../../config.json");
+const config = require("../config.json");
 
 module.exports = {
   data: new SlashCommandBuilder()
