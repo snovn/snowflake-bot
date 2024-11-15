@@ -1,11 +1,11 @@
 const { SlashCommandBuilder } = require("discord.js");
-const { wantnekonsfw } = require("wantnsfwapi"); // Import the wantnsfwapi package
 const config = require("../../../config.json");
+const superagent = require("superagent");
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName("kitsune")
-    .setDescription("Displays a NSFW kitsune image."),
+    .setName("holo")
+    .setDescription("Displays a NSFW holo image."),
 
   async execute(interaction) {
     // Ensure the command is used in an NSFW channel
@@ -17,13 +17,16 @@ module.exports = {
     }
 
     try {
-      // Use the wantblowjobx method to fetch an image
-      const imageURL = await wantnekonsfw.wantnekohkitsune();
+      const response = await superagent
+        .get("https://nekobot.xyz/api/image")
+        .query({ type: "holo" });
+
+      const imageUrl = response.body.message;
 
       const embed = {
         color: parseInt(config.botColor.replace("#", ""), 16) || 0x0099ff,
-        title: "Here's your NSFW kitsune image",
-        image: { url: imageURL },
+        title: "Here's your NSFW holo image",
+        image: { url: imageUrl },
         footer: {
           text: `Requested by ${interaction.user.tag}`,
         },
@@ -33,7 +36,7 @@ module.exports = {
       // Send the embed with the fetched image
       await interaction.reply({ embeds: [embed] });
     } catch (error) {
-      console.error("Error fetching NSFW blowjob image:", error);
+      console.error("Error fetching NSFW holo image:", error);
       await interaction.reply(
         "Sorry, an error occurred while fetching the image."
       );
