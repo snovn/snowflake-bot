@@ -15,7 +15,6 @@ module.exports = {
       );
       return;
     }
-
     try {
       const image = await nsfw.fetch("milf"); // Use the package method
 

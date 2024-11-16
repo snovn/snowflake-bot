@@ -27,7 +27,7 @@ module.exports = {
     const tag = interaction.options.getString("tag");
 
     try {
-      const images = await real_search({ search_tag: tag, gay_block: true });
+      const images = await real_search({ search_tag: tag, gay_block: false });
 
       // Check for status: 400 (invalid tag) or empty results
       if (images.status === 400) {

@@ -1,11 +1,14 @@
-(async () => {
-  const { parse, random } = await import("merunyaa.xyz");
+const tik = require("rahad-media-downloader");
 
-  parse("9259").then((images) => {
-    console.log(images.join(",\n"));
-  });
+const tiktokUrl = "https://www.tiktok.com/@bakuvfx/video/7414425808401452320";
 
-  random().then((images) => {
-    console.log(images.join(",\n"));
-  });
-})();
+async function main() {
+  try {
+    const result = await tik.rahadtikdl(tiktokUrl);
+    console.log(result);
+  } catch (error) {
+    console.error("Error:", error.message);
+  }
+}
+
+main();
